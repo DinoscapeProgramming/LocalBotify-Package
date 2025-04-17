@@ -105,6 +105,7 @@ module.exports = {
   confirm: (...args) => {
     if (!fs.existsSync(path.join(process.cwd(), "channels"))) fs.mkdirSync(path.join(process.cwd(), "channels"));
 
+    let id = Date.now();
     fs.writeFileSync(path.join(process.cwd(), "channels/dialog.txt"), id + "\nconfirm\n" + JSON.stringify(args));
 
     return new Promise((resolve, reject) => {
@@ -120,6 +121,7 @@ module.exports = {
   prompt: (...args) => {
     if (!fs.existsSync(path.join(process.cwd(), "channels"))) fs.mkdirSync(path.join(process.cwd(), "channels"));
 
+    let id = Date.now();
     fs.writeFileSync(path.join(process.cwd(), "channels/dialog.txt"), id + "\nprompt\n" + JSON.stringify(args));
 
     return new Promise((resolve, reject) => {
