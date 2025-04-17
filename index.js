@@ -94,10 +94,10 @@ module.exports = {
 
     return new Promise((resolve, reject) => {
       fs.watch(path.join(process.cwd(), "channels/dialog.txt"), (eventType) => {
-        if ((eventType !== "change") || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[0] !== id.toString()) || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1] !== "response"))  return;
+        if ((eventType !== "change") || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[0] !== id.toString()) || !fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1].startsWith("response")) return;
 
         if (Array.isArray(JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || null))) {
-          resolve(...JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || "[]"));
+          ((fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1].slice(8).toLowerCase() === "resolve") ? resolve : reject)(...JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || "[]"));
         };
       });
     });
@@ -110,10 +110,10 @@ module.exports = {
 
     return new Promise((resolve, reject) => {
       fs.watch(path.join(process.cwd(), "channels/dialog.txt"), (eventType) => {
-        if ((eventType !== "change") || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[0] !== id.toString()) || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1] !== "response"))  return;
+        if ((eventType !== "change") || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[0] !== id.toString()) || !fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1].startsWith("response")) return;
 
         if (Array.isArray(JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || null))) {
-          resolve(...JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || "[]"));
+          ((fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1].slice(8).toLowerCase() === "resolve") ? resolve : reject)(...JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || "[]"));
         };
       });
     });
@@ -126,10 +126,10 @@ module.exports = {
 
     return new Promise((resolve, reject) => {
       fs.watch(path.join(process.cwd(), "channels/dialog.txt"), (eventType) => {
-        if ((eventType !== "change") || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[0] !== id.toString()) || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1] !== "response"))  return;
+        if ((eventType !== "change") || (fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[0] !== id.toString()) || !fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1].startsWith("response")) return;
 
         if (Array.isArray(JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || null))) {
-          resolve(...JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || "[]"));
+          ((fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n")[1].slice(8).toLowerCase() === "resolve") ? resolve : reject)(...JSON.parse(fs.readFileSync(path.join(process.cwd(), "channels/dialog.txt"), "utf8").split("\n").slice(2).join("\n") || "[]"));
         };
       });
     });
