@@ -7,7 +7,7 @@ const { commandType, alert, confirm, prompt } = require("localbotify");
 ## .commandType()
 
 ```js
-commandType(event) // --> message / interaction
+commandType(event);
 ```
 
 **Possible types:**
