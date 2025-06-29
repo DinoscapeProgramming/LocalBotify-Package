@@ -30,7 +30,7 @@ alert("Title", "Body / Description");
 ## .confirm()
 
 ```js
-alert("Title", "Body / Description");
+confirm("Title", "Body / Description");
 ```
 
 ## .prompt()
